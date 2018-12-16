@@ -1,0 +1,13 @@
+FROM frolvlad/alpine-glibc:alpine-3.8_glibc-2.28
+
+ENV VER=r6720
+
+RUN apk add curl unzip \
+    && curl -LJO http://www.kamremake.com/wp-content/uploads/downloads/2014/12/kam_remake_server_$VER.zip \
+    && unzip kam_remake_server_$VER.zip \
+    && chmod +x KaM_Remake_Server_x86_64 \
+    && rm kam_remake_server_$VER.zip KaM_Remake_Server_x86 KaM_Remake_Server_win32.exe
+
+EXPOSE 56789/tcp
+
+CMD [ "./KaM_Remake_Server_x86_64" ]

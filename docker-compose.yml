@@ -1,0 +1,9 @@
+version: "3.5"
+
+services:
+  kam:
+    build: .
+    image: jjtc/kam_remake:r6720-r0
+    restart: unless-stopped
+    ports:
+        - 56789:56789/tcp
